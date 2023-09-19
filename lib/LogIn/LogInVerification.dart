@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:paytonfc/Utils/CustomButton.dart';
 
+import '../CreatePaymentProfile/CreatePaymentProfile.dart';
+
 class LogInVerification extends StatelessWidget {
   const LogInVerification({Key? key}) : super(key: key);
 
@@ -37,10 +39,14 @@ class LogInVerification extends StatelessWidget {
                 child: CustomButton(
                   text: 'Done',
                   onPressed: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => LogIn()),
-                    // );
+                    Navigator.pushAndRemoveUntil(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CreatePaymentProfile()),
+                      // Replace NewScreen() with the screen you want to navigate to.
+                          (Route<dynamic> route) =>
+                      false, // Use a condition to specify when to stop removing routes.
+                    );
                   },
                 )),
           ),

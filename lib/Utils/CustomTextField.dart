@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class CustomTextField extends StatefulWidget {
   String heading;
@@ -83,7 +84,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
         );}
 
-      else if (widget.heading == "Date of birth:")
+      else if (widget.heading == "Date of birth:" || widget.heading == "Expiration Date:")
     {
         // Return a down arrow icon when not "Date of birth"
         return Padding(
@@ -100,6 +101,37 @@ class _CustomTextFieldState extends State<CustomTextField> {
           ),
         );
       }
+    else if (widget.heading == "Card Number:" ||widget.heading == "CVV:" || widget.heading == "Security Code:" || widget.heading == "Account Number:"){
+        return Padding(
+          padding: const EdgeInsets.only(bottom: 4.0),
+          child: Transform.scale(
+              scale: 0.55,
+              child: SvgPicture.asset("assets/Security.svg"))
+
+        );
+    }
+    else if (widget.heading == "Card Type:" ){
+      return Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+
+          Padding(
+              padding: const EdgeInsets.only(bottom: 4.0),
+              child: SvgPicture.asset("assets/cardtype.svg")
+
+          ),
+          SizedBox(width: 5,),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Icon(
+              CupertinoIcons.chevron_down,
+              color: Color(0xff777777),
+              size: 18,
+            ),
+          ),
+        ],
+      );
+    }
      else {
       return SizedBox(); // Return an empty space
     }

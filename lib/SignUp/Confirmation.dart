@@ -38,9 +38,13 @@ class Confirmation extends StatelessWidget {
                 child: CustomButton(
                   text: 'Go to Login',
                   onPressed: () {
-                    Navigator.push(
+                    Navigator.pushAndRemoveUntil(
                       context,
-                      MaterialPageRoute(builder: (context) => LogIn()),
+                      MaterialPageRoute(
+                          builder: (context) => LogIn()),
+                      // Replace NewScreen() with the screen you want to navigate to.
+                          (Route<dynamic> route) =>
+                      false, // Use a condition to specify when to stop removing routes.
                     );
                   },
                 )),

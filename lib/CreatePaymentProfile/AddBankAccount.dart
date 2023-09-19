@@ -1,29 +1,37 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:paytonfc/SignUp/Verification.dart';
+import 'package:paytonfc/SignUp/VerificationOTP.dart';
 
 import '../Utils/CustomButton.dart';
 import '../Utils/CustomTextField.dart';
+import 'AccountCreation_success.dart';
 
-class RegisterAccount extends StatefulWidget {
-  const RegisterAccount({Key? key}) : super(key: key);
+class AddBankAccount extends StatefulWidget {
+  const AddBankAccount({Key? key}) : super(key: key);
 
   @override
-  State<RegisterAccount> createState() => _RegisterAccountState();
+  State<AddBankAccount> createState() => _AddBankAccountState();
 }
 
-class _RegisterAccountState extends State<RegisterAccount> {
-  TextEditingController firstname = TextEditingController();
-  bool _isChecked = false;
+class _AddBankAccountState extends State<AddBankAccount> {
 
-  String? selectedGender = 'Male'; // Set the initial value to 'Male'
+
+  TextEditingController bankname = TextEditingController();
+  TextEditingController accountnumber = TextEditingController();
+  TextEditingController firstname = TextEditingController();
+  TextEditingController lastname = TextEditingController();
+
+  TextEditingController address = TextEditingController();
+  TextEditingController zipcode = TextEditingController();
+  bool _isChecked = false;
+  String? selectedAccountType = 'Current'; // Set the initial value to 'Male'
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
+      body:   SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20.0),
           child: Column(
@@ -35,10 +43,12 @@ class _RegisterAccountState extends State<RegisterAccount> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   IconButton(
-                      onPressed: () {}, icon: Icon(CupertinoIcons.arrow_left)),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      }, icon: Icon(CupertinoIcons.arrow_left)),
                   Text(
-                    'Register Account',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                    'Add Bank Account',
+                    style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
                   ),
                   SizedBox(
                     height: 40,
@@ -52,7 +62,7 @@ class _RegisterAccountState extends State<RegisterAccount> {
               Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
-                    'Welcome to PayTo',
+                    'Add your bank account',
                     style: TextStyle(
                         fontSize: 18,
                         color: Color(0xff132183),
@@ -60,6 +70,77 @@ class _RegisterAccountState extends State<RegisterAccount> {
                   )),
               SizedBox(
                 height: 40,
+              ),
+              CustomTextField(
+                heading: "Bank Name:",
+                hinttext: 'Axis Bank',
+                controller: bankname,
+              ),
+              SizedBox(
+                height: 20,
+              ),
+              CustomTextField(
+                heading: "Account Number:",
+                hinttext: '123 *** *** ***',
+                controller: accountnumber,
+              ),
+
+              SizedBox(
+                height: 20,
+              ),
+              Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    "Account Type:",
+                    style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500),
+                  )),
+              SizedBox(
+                height: 15,
+              ),
+              Container(
+                height: 50,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: Color(0xff132183), // Set the border color
+                    width: 1.0, // Set the border width
+                  ),
+                  borderRadius: BorderRadius.circular(10.0), // Add rounded corners
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 12.0), // Add padding to the container
+                child: DropdownButton<String>(
+                  padding: EdgeInsets.only(left: 10),
+                  icon: Icon(CupertinoIcons.chevron_down),
+                  iconSize: 18,
+                  isExpanded: true,
+
+
+                  value: selectedAccountType,
+                  items: <String>['Current', 'Savings']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(
+                        value,
+                        style: TextStyle(fontSize: 14, ),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedAccountType = newValue!;
+                    });
+                  },
+                  underline: Container(), // Remove the default underline
+                )
+                ,
+              ),
+
+              SizedBox(
+                height: 20,
               ),
               CustomTextField(
                 heading: "First Name:",
@@ -72,117 +153,7 @@ class _RegisterAccountState extends State<RegisterAccount> {
               CustomTextField(
                 heading: "Last Name:",
                 hinttext: 'Mike',
-                controller: firstname,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                heading: "Phone Number:",
-                hinttext: '+41 123 456 789',
-                controller: firstname,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                heading: "Email Address:",
-                hinttext: 'example@gmail.com',
-                controller: firstname,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                heading: "Password:",
-                hinttext: '--------',
-                controller: firstname,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              CustomTextField(
-                heading: "Confirm Password:",
-                hinttext: '--------',
-                controller: firstname,
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: CustomTextField(
-                      heading: "Date of birth:",
-                      hinttext: '28 / 07 / 1990',
-                      controller: firstname,
-                    ),
-                  ),
-                  SizedBox(
-                    width: 20,
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Align(
-                            alignment: Alignment.centerLeft,
-                            child: Text(
-                              "Gender:",
-                              style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500),
-                            )),
-                        SizedBox(
-                          height: 15,
-                        ),
-                        Container(
-                          height: 50,
-                          width: double.infinity,
-                          decoration: BoxDecoration(
-                            border: Border.all(
-                              color: Color(0xff132183), // Set the border color
-                              width: 1.0, // Set the border width
-                            ),
-                            borderRadius: BorderRadius.circular(10.0), // Add rounded corners
-                          ),
-                          padding: EdgeInsets.symmetric(horizontal: 12.0), // Add padding to the container
-                          child: DropdownButton<String>(
-                            padding: EdgeInsets.only(left: 10),
-                            icon: Icon(CupertinoIcons.chevron_down),
-                            iconSize: 18,
-
-
-                            value: selectedGender,
-                            items: <String>['Male', 'Female']
-                                .map<DropdownMenuItem<String>>((String value) {
-                              return DropdownMenuItem<String>(
-                                value: value,
-                                child: Text(
-                                  value,
-                                  style: TextStyle(fontSize: 14, ),
-                                ),
-                              );
-                            }).toList(),
-                            onChanged: (String? newValue) {
-                              setState(() {
-                                selectedGender = newValue!;
-                              });
-                            },
-                            underline: Container(), // Remove the default underline
-                          )
-                          ,
-                        ),
-                      ],
-                    )
-
-
-
-                  )
-                ],
+                controller: lastname,
               ),
               SizedBox(
                 height: 20,
@@ -190,7 +161,7 @@ class _RegisterAccountState extends State<RegisterAccount> {
               CustomTextField(
                 heading: "Address:",
                 hinttext: 'Rägetenstrasse 29, Holzhäusern,Switzerland.',
-                controller: firstname,
+                controller: address,
               ),
               SizedBox(
                 height: 20,
@@ -198,7 +169,7 @@ class _RegisterAccountState extends State<RegisterAccount> {
               CustomTextField(
                 heading: "Zip Code:",
                 hinttext: '4704',
-                controller: firstname,
+                controller: zipcode,
               ),
               SizedBox(
                 height: 20,
@@ -211,7 +182,8 @@ class _RegisterAccountState extends State<RegisterAccount> {
                       toggleableActiveColor: Color(0xff132183), // Fill color when checked
                     ),
                     child: Checkbox(
-                      activeColor: Color(0xff132183), //The color to use when this checkbox is checked.
+                      activeColor: Color(0xff132183),
+                      visualDensity: VisualDensity.compact,//The color to use when this checkbox is checked.
 
                       value: _isChecked,
                       onChanged: (bool? newValue) {
@@ -228,8 +200,8 @@ class _RegisterAccountState extends State<RegisterAccount> {
                       Text(
                         'By Registering on account you agree our',
                         style: TextStyle(
-                          fontSize: 15,
-                          color: Color(0xff777777)
+                            fontSize: 15,
+                            color: Color(0xff777777)
                         ),
                       ),
                       RichText(
@@ -265,16 +237,17 @@ class _RegisterAccountState extends State<RegisterAccount> {
                   ),
                 ],
               ),
+              SizedBox(height: 5,),
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0,vertical: 20),
                     child: CustomButton(
-                      text: 'Register',
+                      text: 'Save',
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => Verification()),
+                          MaterialPageRoute(builder: (context) => SuccessRegistration()),
                         );
                       },
                     )),
@@ -284,6 +257,7 @@ class _RegisterAccountState extends State<RegisterAccount> {
           ),
         ),
       ),
+
     );
   }
 }

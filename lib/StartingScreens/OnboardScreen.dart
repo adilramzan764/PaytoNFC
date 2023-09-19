@@ -16,7 +16,11 @@ class OnBoardScreen extends StatefulWidget {
 class _OnBoardScreenState extends State<OnBoardScreen> {
   final PageController _controller = PageController();
   int _currentPage = 0;
-
+  void incrementPage() {
+    setState(() {
+      _currentPage++;
+    });
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,7 +76,14 @@ class _OnBoardScreenState extends State<OnBoardScreen> {
                   Padding(
                     padding: const EdgeInsets.all(3.0),
                     child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (_currentPage < 2) {
+                            _controller.nextPage(duration: Duration(milliseconds: 500),
+                              curve: Curves.ease,
+                             
+                            );
+                          }
+                        },
                         icon: Icon(
                           CupertinoIcons.arrow_right,
                           color: Color(0xff132183),
