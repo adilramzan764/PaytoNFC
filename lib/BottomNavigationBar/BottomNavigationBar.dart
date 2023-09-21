@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:paytonfc/BottomBar_Screens/Settings.dart';
 
 import '../BottomBar_Screens/Home.dart';
 
@@ -18,7 +19,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
     Home(),
     SearchScreen(),
     ProfileScreen(),
-    Text('settings')
+    Settings(),
   ];
 
   void _onItemTapped(int index) {
@@ -63,7 +64,7 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
             icon:SvgPicture.asset('assets/Notification.svg',
               color: _selectedIndex==2 ? Color(0xff132183) : null,
             ),
-            label: 'My Card',
+            label: 'Notification',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
@@ -75,20 +76,13 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   }
 }
 
-class HomeScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Home Screen'),
-    );
-  }
-}
+
 
 class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Search Screen'),
+      child: Text('My Card Screen'),
     );
   }
 }
@@ -97,7 +91,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('Profile Screen'),
+      child: Text('Notification Screen'),
     );
   }
 }

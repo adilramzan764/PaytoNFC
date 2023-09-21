@@ -42,13 +42,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
           elevation: 2, // Set the elevation value for the shadow
           borderRadius: BorderRadius.circular(10.0),
           child: Container(
-            height: 50,
+            height: container_height(widget.heading),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10.0),
               border: Border.all(color: Color(0xff132183), width: 1),
             ),
             child: TextField(
+              maxLines: maxlines(widget.heading),
               obscureText: widget.heading == "Password:" ||
                   widget.heading == "Confirm Password:"
                   ? _obscureText
@@ -136,4 +137,25 @@ class _CustomTextFieldState extends State<CustomTextField> {
       return SizedBox(); // Return an empty space
     }
   }
+  int maxlines(String labeltext) {
+    if (labeltext == 'Address:') {
+      return 2;
+    }
+    else if (labeltext == 'Message:') {
+      return 5;
+    }
+    // Return a default value if the condition doesn't match
+    return 1; // or any other default value
+  }
+  double container_height(String labeltext) {
+    if (labeltext == 'Address:') {
+      return 70;
+    }
+    else if (labeltext == 'Message:') {
+      return 180;
+    }
+    // Return a default value if the condition doesn't match
+    return 50; // or any other default value
+  }
+
 }

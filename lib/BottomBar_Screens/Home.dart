@@ -33,8 +33,16 @@ class _HomeState extends State<Home> {
               ),
               Row(
                 children: [
-                  IconButton(onPressed: () {
-                    Scaffold.of(context).openDrawer();                  }, icon: Icon(Icons.menu)),
+                  Builder(
+                    builder: (BuildContext context) {
+                      return IconButton(
+                        onPressed: () {
+                          Scaffold.of(context).openDrawer();
+                        },
+                        icon: Icon(Icons.menu),
+                      );
+                    },
+                  ),
                   Expanded(
                       child: Align(
                     alignment: Alignment.centerRight,

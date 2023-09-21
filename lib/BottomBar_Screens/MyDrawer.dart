@@ -4,12 +4,25 @@ import 'package:flutter_svg/svg.dart';
 import 'package:paytonfc/Drawer_Screens/AboutUs.dart';
 import 'package:paytonfc/Drawer_Screens/MyProfile.dart';
 import 'package:paytonfc/Drawer_Screens/NFC.dart';
+import 'package:paytonfc/Drawer_Screens/PaymentHistory.dart';
+
+import '../Drawer_Screens/ContactUs.dart';
+import '../Drawer_Screens/Privacy&Policy.dart';
+import '../Drawer_Screens/Support FAQ.dart';
+import '../Utils/Logout_Alert.dart';
 
 class CustomDrawer extends StatelessWidget {
 
   final List<String> drawerItems = ['Home', 'My profile', 'My QR code', 'NFC','Payment History', 'Privacy policy', 'About us', 'Contact us','Support / FAQ’s','Log out'];
   final List<String> icons = ['assets/home.svg', 'assets/profile.svg', 'assets/Qr Code2.svg', 'assets/nfc2.svg','assets/Refresh.svg', 'assets/change-password.svg', 'assets/about-us.svg', 'assets/icon_massage .svg','assets/support.svg','assets/logout.svg'];
-
+  void _showLogoutDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Logout_Alert(context);
+      },
+    );
+  }
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -81,6 +94,28 @@ class CustomDrawer extends StatelessWidget {
                               context,
                               MaterialPageRoute(builder: (context) => AboutUs()),
                             );
+                          if(drawerItems[index]=='Contact us')
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => ContactUs()),
+                            );
+                          if(drawerItems[index]=='Privacy policy')
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => PrivacyPolicy()),
+                            );
+                          if (drawerItems[index] == "Support / FAQ’s")
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => SupportFAQs()),
+                            );
+                          if (drawerItems[index] == "Payment History")
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => PaymentHistory()),
+                            );
+                          if (drawerItems[index] == "Log out")
+                            _showLogoutDialog(context);
                         },
                       ),
                       Padding(
