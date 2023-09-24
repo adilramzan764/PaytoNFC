@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:paytonfc/HomeButtons_Screens/QR%20Pay/QR_Pay.dart';
 
+import '../HomeButtons_Screens/NFC_Pay.dart';
+import '../HomeButtons_Screens/Transfer/Transfer.dart';
 import '../Utils/HomeScreen_CustomButton.dart';
 import 'MyDrawer.dart';
 
@@ -215,8 +218,10 @@ class _HomeState extends State<Home> {
                   flex: 1,
                   child:HomeScreen_CustomButton(
                     onTap: () {
-                      // Your onTap logic here
-                    }, icon: 'assets/Qr Code.svg', buttonname: "Scan QR",
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => QR_Pay()),
+                      );                    }, icon: 'assets/Qr Code.svg', buttonname: "Scan QR",
 
                   ),
                 ),
@@ -225,8 +230,10 @@ class _HomeState extends State<Home> {
                   flex: 1,
                   child:HomeScreen_CustomButton(
                     onTap: () {
-                      // Your onTap logic here
-                    }, icon: 'assets/nfc.svg', buttonname: 'NFC',
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => NFC_Pay()),
+                      );                    }, icon: 'assets/nfc.svg', buttonname: 'NFC',
 
                   ),
                 ),
@@ -252,7 +259,10 @@ class _HomeState extends State<Home> {
                 width: 180,
                 child: HomeScreen_CustomButton(
                   onTap: () {
-                    // Your onTap logic here
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Transfer()),
+                    );
                   }, icon: 'assets/transfer.svg', buttonname: 'Transfer',
 
                 ),

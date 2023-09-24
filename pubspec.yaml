@@ -39,6 +39,7 @@ dependencies:
   simple_gradient_text: ^1.2.4
   smooth_page_indicator: ^1.1.0
   pin_code_fields:
+  dotted_line: ^3.2.2
 
 
 

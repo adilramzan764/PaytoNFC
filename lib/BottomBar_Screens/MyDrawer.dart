@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:paytonfc/Drawer_Screens/AboutUs.dart';
 import 'package:paytonfc/Drawer_Screens/MyProfile.dart';
+import 'package:paytonfc/Drawer_Screens/MyQrCode.dart';
 import 'package:paytonfc/Drawer_Screens/NFC.dart';
-import 'package:paytonfc/Drawer_Screens/PaymentHistory.dart';
+import 'package:paytonfc/Drawer_Screens/PaymentHistory/PaymentHistory.dart';
 
 import '../Drawer_Screens/ContactUs.dart';
 import '../Drawer_Screens/Privacy&Policy.dart';
 import '../Drawer_Screens/Support FAQ.dart';
-import '../Utils/Logout_Alert.dart';
+import '../Drawer_Screens/Logout_Alert.dart';
 
 class CustomDrawer extends StatelessWidget {
 
@@ -113,6 +114,11 @@ class CustomDrawer extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(builder: (context) => PaymentHistory()),
+                            );
+                          if (drawerItems[index] == "My QR code")
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => MyQrCode()),
                             );
                           if (drawerItems[index] == "Log out")
                             _showLogoutDialog(context);

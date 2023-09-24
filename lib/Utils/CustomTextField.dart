@@ -51,7 +51,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             child: TextField(
               maxLines: maxlines(widget.heading),
               obscureText: widget.heading == "Password:" ||
-                  widget.heading == "Confirm Password:"
+                  widget.heading == "Confirm Password:" || widget.heading == "Current Password:" || widget.heading == "New Password:"
                   ? _obscureText
                   : false,
               decoration: InputDecoration(
@@ -72,7 +72,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
     );
   }
   Widget _buildSuffixIcon() {
-    if (widget.heading == "Password:" || widget.heading == "Confirm Password:") {
+    if (widget.heading == "Password:" || widget.heading == "Confirm Password:" || widget.heading == "Current Password:" || widget.heading == "New Password:") {
         return IconButton(
           onPressed: () {
             setState(() {

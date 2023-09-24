@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'CustomButton.dart';
+import '../Utils/CustomButton.dart';
 
 Widget Logout_Alert(BuildContext context) {
   return Dialog(

@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:paytonfc/BottomBar_Screens/Settings.dart';
 
 import '../BottomBar_Screens/Home.dart';
+import '../BottomBar_Screens/MyCard/MyCard.dart';
+import '../BottomBar_Screens/Notifications/Notifications.dart';
 
 
 
@@ -17,8 +19,8 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
   // Define your pages here
   final List<Widget> _pages = [
     Home(),
-    SearchScreen(),
-    ProfileScreen(),
+    MyCard(),
+    Notifications(),
     Settings(),
   ];
 
@@ -77,21 +79,3 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 }
 
 
-
-class SearchScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('My Card Screen'),
-    );
-  }
-}
-
-class ProfileScreen extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Text('Notification Screen'),
-    );
-  }
-}
