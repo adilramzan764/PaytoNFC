@@ -4,6 +4,8 @@ import 'package:flutter_svg/svg.dart';
 import 'package:paytonfc/HomeButtons_Screens/QR%20Pay/QR_Pay.dart';
 
 import '../HomeButtons_Screens/NFC_Pay.dart';
+import '../HomeButtons_Screens/Refer & Earn/Refer.dart';
+import '../HomeButtons_Screens/Rewards&CashBacks/Rewards&CashBacks.dart';
 import '../HomeButtons_Screens/Transfer/Transfer.dart';
 import '../Utils/HomeScreen_CustomButton.dart';
 import 'MyDrawer.dart';
@@ -288,8 +290,10 @@ class _HomeState extends State<Home> {
                       flex: 1,
                       child:HomeScreen_CustomButton(
                         onTap: () {
-                          // Your onTap logic here
-                        }, icon: 'assets/Reward.svg', buttonname: "Reward",
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => RewardsandCashBacks()),
+                          );                        }, icon: 'assets/Reward.svg', buttonname: "Rewards and Cashback",
 
                       ),
                     ),
@@ -298,8 +302,10 @@ class _HomeState extends State<Home> {
                       flex: 1,
                       child:HomeScreen_CustomButton(
                         onTap: () {
-                          // Your onTap logic here
-                        }, icon: 'assets/Rewards.svg', buttonname: 'Rewards',
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Refer()),
+                          );                        }, icon: 'assets/Rewards.svg', buttonname: 'Refer & Earn',
 
                       ),
                     ),
