@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:paytonfc/LogIn/LogInVerification.dart';
@@ -9,6 +11,8 @@ class ReadytoScan {
   static Future<void> customdialog(BuildContext context) async {
     final int totalCircles = 10; // Total number of circles
     final int blueCircles = 3; // Number of blue circles
+     bool _isCancelled = false;
+
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -99,6 +103,8 @@ class ReadytoScan {
                                 borderRadius: BorderRadius.circular(10)),
                             child: TextButton(
                               onPressed: () {
+                                _isCancelled = true; // Set the flag to true
+
                                 Navigator.pop(context);
                                 Tagread_Failed.customdialog(context);
                               },
@@ -127,6 +133,13 @@ class ReadytoScan {
     );
     await Future.delayed(Duration(seconds: 3)).then((value) =>     Navigator.pop(context)
     );
+    if (!_isCancelled)
     Tagread_Successfully.customdialog(context);
+    // Timer(Duration(seconds: 3), () {
+    //   if (!_isCancelled) {
+    //     Navigator.pop(context);
+    //     Tagread_Successfully.customdialog(context);
+    //   }
+    // });
   }
 }
