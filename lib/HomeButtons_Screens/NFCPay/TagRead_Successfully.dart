@@ -121,6 +121,14 @@ class Tagread_Successfully {
           ),
         );
       },
+    ).then((value) =>
+        Navigator.pushAndRemoveUntil(
+          context,
+          MaterialPageRoute(
+              builder: (context) => MyBottomNavigationBar()),
+              (Route<dynamic> route) =>
+          false,
+        )
     );
   }
 }
