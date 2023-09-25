@@ -2,8 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class NFC_Pay extends StatelessWidget {
-  const NFC_Pay({Key? key}) : super(key: key);
+import '../../Drawer_Screens/NFC.dart';
+import 'NFC_Confirmation.dart';
+
+class HowToPay extends StatelessWidget {
+  const HowToPay({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +46,16 @@ class NFC_Pay extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.25,
             ),
             Center(
-              child: SvgPicture.asset('assets/nfc.svg',height: 100,width: 100,),
+              child: InkWell(
+                  onTap: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NFC()),
+
+                    );
+                  },
+                  child: SvgPicture.asset('assets/nfc.svg',height: 100,width: 100,)),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.04,

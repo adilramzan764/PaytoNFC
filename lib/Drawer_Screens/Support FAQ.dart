@@ -40,11 +40,11 @@ class SupportFAQs extends StatelessWidget {
               SizedBox(
                 height: MediaQuery.of(context).size.height*0.05,
               ),
-              faqs('What is',"PayTo"),
+              faqs('What is ',"PayTo"),
               SizedBox(height: 10,),
               Text('Borem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna. Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum tellus.Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. ',style: TextStyle(color: Colors.grey,fontSize: 14),),
               SizedBox(height: 10,),
-              faqs('How do I pay with',"PayTo"),
+              faqs('How do I pay with ',"PayTo"),
               SizedBox(height: 10,),
               Text('Borem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim egestas, ac scelerisque ante pulvinar. ',style: TextStyle(fontSize: 14,color: Colors.grey),),
               SizedBox(height: 10,),

@@ -36,12 +36,17 @@ class _MyBottomNavigationBarState extends State<MyBottomNavigationBar> {
 
   final TextStyle selectedLabelStyle =
   TextStyle(color: Color(0xff132183), fontWeight: FontWeight.w500, fontSize: 12);
+
+  GlobalKey _bottomNavigationKey = GlobalKey();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
 
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
+        key: _bottomNavigationKey,
+
         currentIndex: _selectedIndex,
         showUnselectedLabels: true,
         showSelectedLabels: true,

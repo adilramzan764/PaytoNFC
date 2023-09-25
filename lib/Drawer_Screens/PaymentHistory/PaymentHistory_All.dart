@@ -18,36 +18,41 @@ class PaymentHistory_All extends StatelessWidget {
     PaymentHistory_Info('assets/olacab.jpg', 'Paid for order to Ola Cab', '2023-09-15', '\$500.00'),
 
 
+
+
     // Add more payment history info here
   ];
 
   @override
   Widget build(BuildContext context) {
     return
-      // height: MediaQuery.of(context).size.height*0.56,
 
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
-            child:  ListView.builder(
-                // physics: NeverScrollableScrollPhysics(),
-                itemCount: paymentHistoryList.length, // Replace 'yourList' with your actual list of contact data
-                shrinkWrap: true, // Set shrinkWrap to true
+          SizedBox(
+            height: 93*paymentHistoryList.length.toDouble(),
 
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: [
-                      PaymentHistory_Widget(paymentHistoryList[index]),
-                      SizedBox(height: 2,),
-                      Divider(thickness: 1,),
-                      if(index==paymentHistoryList.length-1)
-                        SizedBox(height: 20,)
+          child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child:  ListView.builder(
+                  physics: NeverScrollableScrollPhysics(),
+                  itemCount: paymentHistoryList.length, // Replace 'yourList' with your actual list of contact data
+                  shrinkWrap: true, // Set shrinkWrap to true
 
-                    ],
-                  );
-                },
-              ),
+                  itemBuilder: (context, index) {
+                    return Column(
+                      children: [
+                        PaymentHistory_Widget(paymentHistoryList[index]),
+                        SizedBox(height: 2,),
+                        Divider(thickness: 1,),
+                        if(index==paymentHistoryList.length-1)
+                          SizedBox(height: 20,)
+
+                      ],
+                    );
+                  },
+                ),
 
 
+            ),
           );
 
 

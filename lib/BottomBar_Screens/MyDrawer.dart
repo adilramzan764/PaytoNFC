@@ -59,8 +59,8 @@ class CustomDrawer extends StatelessWidget {
                         title: Text(drawerItems[index]),
                         trailing: Icon(CupertinoIcons.right_chevron),
                         onTap: () {
-                          // Handle the Home item tap
-                        },
+                          if(drawerItems[index]=='Home')
+                            Navigator.pop(context);                        },
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -80,6 +80,7 @@ class CustomDrawer extends StatelessWidget {
                         title: Text(drawerItems[index]),
                         trailing: Icon(CupertinoIcons.right_chevron),
                         onTap: () {
+
                           if(drawerItems[index]=='My profile')
                             Navigator.push(
                               context,

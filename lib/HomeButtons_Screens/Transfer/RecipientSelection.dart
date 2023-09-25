@@ -66,7 +66,7 @@ class RecipientSelection extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 10,
+          height: 5,
         ),
         Divider(
           thickness: 2,

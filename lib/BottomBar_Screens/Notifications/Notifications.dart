@@ -56,6 +56,12 @@ class _NotificationsState extends State<Notifications> {
       time: 'yesterday',
       read: true,
     ),
+    Notifications_info(
+      image: 'assets/hotel.svg',
+      notification: 'Your Hotel bill is done.',
+      time: 'yesterday',
+      read: true,
+    ),
     // Add more notifications here
   ];
   @override

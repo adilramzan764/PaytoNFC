@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../Payment_utils/PaymentSuccess.dart';
 import '../Utils/CustomButton.dart';
 
 class TransactionLimit extends StatefulWidget {
@@ -141,13 +142,12 @@ class _TransactionLimitState extends State<TransactionLimit> {
                       child: CustomButton(
                         text: 'Continue',
                         onPressed: () {
-                          // Navigator.pushAndRemoveUntil(
-                          //   context,
-                          //   MaterialPageRoute(
-                          //       builder: (context) => MyBottomNavigationBar()),
-                          //       (Route<dynamic> route) =>
-                          //   false,
-                          // );
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => PaymentSuccess()),
+
+                          );
                         },
                       )),
                 ),

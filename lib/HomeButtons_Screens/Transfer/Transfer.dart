@@ -61,7 +61,7 @@ class _TransferState extends State<Transfer> {
               ],
             ),
             if (selectedButtonIndex == 0)
-              RecipientSelection(),
+              SingleChildScrollView(child: RecipientSelection()),
             if (selectedButtonIndex == 1)
               RequestMoney_Selection(),
 

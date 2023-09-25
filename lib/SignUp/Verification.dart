@@ -78,7 +78,12 @@ class _VerificationState extends State<Verification> {
                 'assets/Email.svg',
                 'Email',
                 'We’ll send a code to\n examle@gmail.com\n to get you set up.',
-                () {}),
+                () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) =>VerificaationOTP()),
+                  );
+                }),
           ],
         ),
       ),
@@ -92,7 +97,7 @@ class _VerificationState extends State<Verification> {
     VoidCallback onPressed,
   ) {
     return Container(
-      height: 100,
+      height: MediaQuery.of(context).size.height*0.115,
       width: double.infinity,
       child: Row(
         children: [

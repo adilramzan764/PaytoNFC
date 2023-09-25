@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:paytonfc/Settings/ChangePassword.dart';
 import 'package:paytonfc/Settings/TransactionLimit.dart';
 
+import '../BottomNavigationBar/BottomNavigationBar.dart';
 import '../Settings/DeleteAccount.dart';
 
 class Settings extends StatefulWidget {
@@ -136,6 +137,7 @@ class _SettingsState extends State<Settings> {
 
                             );
                           }
+
                         },
                       ),
                       Padding(
@@ -181,6 +183,11 @@ class _SettingsState extends State<Settings> {
 
 
                           }
+                          // if(index==1){
+                          //   Navigator.of(_bottomNavigationKey.currentContext!).pushReplacement(
+                          //     MaterialPageRoute(builder: (context) => MyBottomNavigationBar(index)),
+                          //   );
+                          // }
                           if(texts[index]=='Delete account'){
                             _showDeleteAccountAlert(context);
                             print('object');

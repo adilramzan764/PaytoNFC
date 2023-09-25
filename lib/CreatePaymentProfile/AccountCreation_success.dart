@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../BottomNavigationBar/BottomNavigationBar.dart';
 import '../Utils/CustomButton.dart';
+import 'CreatePaymentProfile.dart';
 
 class SuccessRegistration extends StatefulWidget {
   const SuccessRegistration({Key? key}) : super(key: key);
@@ -54,14 +55,21 @@ class _SuccessRegistrationState extends State<SuccessRegistration> {
                 width: double.infinity,
                 height: 50,
                 decoration: BoxDecoration(
-
                   borderRadius: BorderRadius.circular(10),
                   border: Border.all(
                     color: Color(0xff26368E),
                   ),
                 ),
                 child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CreatePaymentProfile()),
+                      // Replace NewScreen() with the screen you want to navigate to.
+
+                    );
+                  },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.transparent,
                     elevation: 0,
@@ -90,12 +98,14 @@ class _SuccessRegistrationState extends State<SuccessRegistration> {
                     MaterialPageRoute(
                         builder: (context) => MyBottomNavigationBar()),
                     // Replace NewScreen() with the screen you want to navigate to.
-                        (Route<dynamic> route) =>
-                    false, // Use a condition to specify when to stop removing routes.
+                    (Route<dynamic> route) =>
+                        false, // Use a condition to specify when to stop removing routes.
                   );
                 },
               )),
-          SizedBox(height: 20,)
+          SizedBox(
+            height: 20,
+          )
         ],
       ),
     );

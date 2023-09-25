@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../HomeButtons_Screens/NFCPay/NFC_Confirmation.dart';
 import '../Utils/CustomButton.dart';
 
 class NFC extends StatefulWidget {
@@ -114,10 +115,10 @@ class _NFCState extends State<NFC> {
                     child: CustomButton(
                       text: 'Tap & Pay',
                       onPressed: () {
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => LogIn()),
-                        // );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => NFC_Confirmation()),
+                        );
                       },
                     )),
               ),

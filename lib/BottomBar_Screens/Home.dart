@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:paytonfc/HomeButtons_Screens/QR%20Pay/QR_Pay.dart';
 
-import '../HomeButtons_Screens/NFC_Pay.dart';
+import '../CreatePaymentProfile/CreatePaymentProfile.dart';
+import '../HomeButtons_Screens/NFCPay/HowToPay.dart';
 import '../HomeButtons_Screens/Refer & Earn/Refer.dart';
 import '../HomeButtons_Screens/Rewards&CashBacks/Rewards&CashBacks.dart';
 import '../HomeButtons_Screens/Transfer/Transfer.dart';
@@ -166,14 +167,22 @@ class _HomeState extends State<Home> {
                                 child: Align(
                                     alignment: Alignment.centerRight,
                                     child: Container(
-                                      width: 150,
+                                      width: MediaQuery.of(context).size.width*0.32,
                                       height: 30,
                                       decoration: BoxDecoration(
                                         color: Color(0xffEAECFF),
                                         borderRadius: BorderRadius.circular(10),
                                       ),
                                       child: ElevatedButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) => CreatePaymentProfile()),
+                                            // Replace NewScreen() with the screen you want to navigate to.
+
+                                          );
+                                        },
                                         style: ElevatedButton.styleFrom(
                                           primary: Colors.transparent,
                                           elevation: 0,
@@ -186,7 +195,7 @@ class _HomeState extends State<Home> {
                                           "Add another Card",
                                           style: TextStyle(
                                               color: Color(0xff132183),
-                                              fontSize: 13),
+                                              fontSize: 11),
                                         ),
                                       ),
                                     )),
@@ -234,7 +243,7 @@ class _HomeState extends State<Home> {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => NFC_Pay()),
+                        MaterialPageRoute(builder: (context) => HowToPay()),
                       );                    }, icon: 'assets/nfc.svg', buttonname: 'NFC',
 
                   ),
