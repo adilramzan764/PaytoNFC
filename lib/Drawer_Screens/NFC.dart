@@ -111,7 +111,7 @@ class _NFCState extends State<NFC> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 20.0,vertical: 40),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0,),
                     child: CustomButton(
                       text: 'Tap & Pay',
                       onPressed: () {
@@ -122,6 +122,7 @@ class _NFCState extends State<NFC> {
                       },
                     )),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height*0.03,)
 
             ],
           ),

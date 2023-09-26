@@ -5,6 +5,7 @@ import 'package:paytonfc/HomeButtons_Screens/QR%20Pay/QR_Pay.dart';
 
 import '../CreatePaymentProfile/CreatePaymentProfile.dart';
 import '../HomeButtons_Screens/NFCPay/HowToPay.dart';
+import '../HomeButtons_Screens/QR Pay/QRScanner.dart';
 import '../HomeButtons_Screens/Refer & Earn/Refer.dart';
 import '../HomeButtons_Screens/Rewards&CashBacks/Rewards&CashBacks.dart';
 import '../HomeButtons_Screens/Transfer/Transfer.dart';
@@ -25,17 +26,38 @@ class _HomeState extends State<Home> {
     _scaffoldKey.currentState?.openDrawer();
   }
 
+
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   initializeCamera();
+  // }
+  //
+  // void initializeCamera() async {
+  //   final camera = await getFirstCamera();
+  //   if (camera != null) {
+  //     setState(() {
+  //       // Store the camera object in your state
+  //       selectedCamera = camera;
+  //     });
+  //   } else {
+  //     // Handle the case where no cameras are available
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10.0),
+        child: Container(
+          height: MediaQuery.of(context).size.height,
           child: Column(
+            // crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                height: 60,
+                height: 30,
               ),
               Row(
                 children: [
@@ -80,24 +102,24 @@ class _HomeState extends State<Home> {
                 ],
               ),
               SizedBox(
-                height: 30,
+                height: 20,
               ),
               Text(
                 "My PayTo Card",
                 style: TextStyle(
-                    fontSize: 19,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff132183)),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Container(
                   width: double.infinity,
                   // Adjust the width and height as needed
-                  height: MediaQuery.of(context).size.height*0.23,
+                  height: MediaQuery.of(context).size.height*0.21,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     gradient: LinearGradient(
@@ -167,7 +189,7 @@ class _HomeState extends State<Home> {
                                 child: Align(
                                     alignment: Alignment.centerRight,
                                     child: Container(
-                                      width: MediaQuery.of(context).size.width*0.32,
+                                      width: MediaQuery.of(context).size.width*0.34,
                                       height: 30,
                                       decoration: BoxDecoration(
                                         color: Color(0xffEAECFF),
@@ -209,17 +231,17 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Text(
                 "Make Payment",
                 style: TextStyle(
-                    fontSize: 19,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff132183)),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -228,15 +250,19 @@ class _HomeState extends State<Home> {
                 Expanded(
                   flex: 1,
                   child:HomeScreen_CustomButton(
-                    onTap: () {
+                    onTap: ()  {
+
                       Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => QR_Pay()),
-                      );                    }, icon: 'assets/Qr Code.svg', buttonname: "Scan QR",
+                      context,
+                      MaterialPageRoute(
+                      builder: (context) => const QRViewExampleState(),
+                      ),
+                      );
+                                      }, icon: 'assets/Qr Code.svg', buttonname: "Scan QR",
 
                   ),
                 ),
-                SizedBox(width: 10,),
+                SizedBox(width: 20,),
                 Expanded(
                   flex: 1,
                   child:HomeScreen_CustomButton(
@@ -253,21 +279,21 @@ class _HomeState extends State<Home> {
             ),
           ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Text(
                 "Payment Transfer",
                 style: TextStyle(
-                    fontSize: 19,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff132183)),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Container(
                 // height: 100,
-                width: 180,
+                width: 160,
                 child: HomeScreen_CustomButton(
                   onTap: () {
                     Navigator.push(
@@ -279,17 +305,17 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
-                height: 30,
+                height: 15,
               ),
               Text(
                 "Promotions",
                 style: TextStyle(
-                    fontSize: 19,
+                    fontSize: 17,
                     fontWeight: FontWeight.bold,
                     color: Color(0xff132183)),
               ),
               SizedBox(
-                height: 20,
+                height: 10,
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
@@ -306,7 +332,7 @@ class _HomeState extends State<Home> {
 
                       ),
                     ),
-                    SizedBox(width: 10,),
+                    SizedBox(width: 20,),
                     Expanded(
                       flex: 1,
                       child:HomeScreen_CustomButton(

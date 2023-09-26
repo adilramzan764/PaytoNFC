@@ -81,7 +81,7 @@ class BiometricLogIn {
                         alignment: Alignment.bottomCenter,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 10),
+                              horizontal: 10.0, ),
                           child: Row(
                             children: [
                               TextButton(

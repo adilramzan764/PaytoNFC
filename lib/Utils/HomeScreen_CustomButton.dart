@@ -21,9 +21,9 @@ class HomeScreen_CustomButton extends StatelessWidget {
         InkWell(
           onTap: onTap,
           child: Container(
-            height: 90,
+            height: 70,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.circular(15),
               gradient: LinearGradient(
                 end: Alignment.centerRight,
                 begin: Alignment.topCenter,
@@ -36,7 +36,7 @@ class HomeScreen_CustomButton extends StatelessWidget {
             child: Center(
               child: Center(
                 child: Transform.scale(
-                    scale: 1.5,
+                    scale: 1,
                     child: SvgPicture.asset(icon)),
               ),
             ),

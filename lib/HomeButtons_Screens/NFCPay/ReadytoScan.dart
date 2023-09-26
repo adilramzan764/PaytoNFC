@@ -43,17 +43,13 @@ class ReadytoScan {
                               fontWeight: FontWeight.bold),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          top: 30,
-                        ),
-                        child: Align(
-                          alignment: Alignment.center,
-                          child: SvgPicture.asset(
-                            'assets/readytoscan.svg',
-                            width: 100, // Adjust the image size as needed
-                            height: 100,
-                          ),
+                      SizedBox(height: MediaQuery.of(context).size.height*0.02,),
+                      Align(
+                        alignment: Alignment.center,
+                        child: SvgPicture.asset(
+                          'assets/readytoscan.svg',
+                          width: 100, // Adjust the image size as needed
+                          height: 100,
                         ),
                       ),
                       SizedBox(
@@ -67,11 +63,12 @@ class ReadytoScan {
                               fontSize: 15,
                               color: Color(0xff132183),
                             ),
+                            textAlign: TextAlign.center,
                           ),
                         ),
                       ),
                       SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.03),
+                          height: MediaQuery.of(context).size.height * 0.02),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: List.generate(totalCircles, (index) {
@@ -94,9 +91,9 @@ class ReadytoScan {
                         alignment: Alignment.bottomCenter,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 10.0, vertical: 10),
+                              horizontal: 10.0, ),
                           child: Container(
-                            height: 40,
+                            height: 30,
                             width: 120,
                             decoration: BoxDecoration(
                                 color: Color(0xffD5D4DA),
@@ -111,7 +108,7 @@ class ReadytoScan {
                               child: Text(
                                 'Cancel ',
                                 style: TextStyle(
-                                  fontSize: 15,
+                                  // fontSize: 15,
                                   color: Color(0xff6B6B6B),
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -120,6 +117,7 @@ class ReadytoScan {
                           ),
                         ),
                       ),
+                      SizedBox(height: MediaQuery.of(context).size.height*0.01,)
                     ],
                   ),
                 ),

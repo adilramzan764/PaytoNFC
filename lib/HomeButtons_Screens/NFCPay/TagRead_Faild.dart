@@ -89,7 +89,7 @@ class Tagread_Failed {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 10.0, vertical: 10),
                           child: SizedBox(
-                            height: 40,
+                            height: MediaQuery.of(context).size.height*0.03,
                             width: 120,
 
                           ),

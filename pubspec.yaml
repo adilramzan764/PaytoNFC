@@ -40,6 +40,13 @@ dependencies:
   smooth_page_indicator: ^1.1.0
   pin_code_fields:
   dotted_line: ^3.2.2
+  responsive_framework: ^1.1.1
+  qr_code_scanner: ^1.0.1
+
+
+
+
+
 
 
 
